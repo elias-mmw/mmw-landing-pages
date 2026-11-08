@@ -41,10 +41,15 @@ def wrap(draw, text, font, width):
     return lines
 
 
-def placeholder(path, size, title, detail, transparent=False):
-    w, h = size
+def placeholder(path, size, title, detail, transparent=False, area=None):
+    W, H = size
     bg = (0, 0, 0, 0) if transparent else (232, 241, 250, 255)
-    im = Image.new("RGBA", size, bg)
+    full = Image.new("RGBA", size, bg)
+    # area = (x0, y0, x1, y1) fractions of the canvas to draw the card in
+    ax0, ay0, ax1, ay1 = area or (0, 0, 1, 1)
+    ox, oy = int(W * ax0), int(H * ay0)
+    w, h = int(W * (ax1 - ax0)), int(H * (ay1 - ay0))
+    im = Image.new("RGBA", (w, h), bg)
     d = ImageDraw.Draw(im)
     m = max(8, w // 40)
     box = (m, m, w - m, h - m)
@@ -73,9 +78,10 @@ def placeholder(path, size, title, detail, transparent=False):
         tw = d.textlength(text, font=f)
         d.text(((w - tw) / 2, y), text, font=f, fill=col)
         y += lh
+    full.paste(im, (ox, oy), im)
     if not transparent:
-        im = im.convert("RGB")
-    im.save(path, "WEBP", quality=82)
+        full = full.convert("RGB")
+    full.save(path, "WEBP", quality=82)
 
 
 def main():
@@ -87,9 +93,9 @@ def main():
     # ---------- placeholder images ----------
     hero_t = "Hero: Mr. Elias with a drum lesson on a tablet"
     hero_d = "Cut-out photo, transparent background, same layout as the piano hero"
-    placeholder(f"{A}/hero-drums-desktop.webp", (1400, 1032), hero_t, hero_d, transparent=True)
-    placeholder(f"{A}/hero-drums-mobile.webp", (800, 590), hero_t, hero_d, transparent=True)
-    placeholder(f"{A}/hero-drums-placeholder.webp", (760, 560), hero_t, hero_d, transparent=True)
+    placeholder(f"{A}/hero-drums-desktop.webp", (1400, 1032), hero_t, hero_d, transparent=True, area=(0.42, 0.12, 0.98, 0.9))
+    placeholder(f"{A}/hero-drums-mobile.webp", (800, 590), hero_t, hero_d, transparent=True, area=(0.06, 0.06, 0.94, 0.94))
+    placeholder(f"{A}/hero-drums-placeholder.webp", (760, 560), hero_t, hero_d, transparent=True, area=(0.42, 0.12, 0.98, 0.9))
 
     day1_t = "Day 1: child at home holding drumsticks"
     day1_d = "e.g. tapping the printable paper drum or a practice pad, lesson on a tablet"
