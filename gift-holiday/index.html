@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, follow">
+  <meta name="googlebot" content="noindex, follow">
+  <meta name="description" content="Online piano lessons built for kids ages 4–12, with bite-sized lessons, built-in practice, and rewards that keep kids engaged.">
+  <title>Online Piano Lessons for Kids | My Music Workshop</title>
+  <link rel="preload" as="image" href="assets/piano-hero-clean-edge.png" type="image/png" fetchpriority="high">
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/lora-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face{font-family:"DM Sans";font-style:normal;font-weight:400 800;font-display:swap;src:url("assets/fonts/dm-sans-latin.woff2") format("woff2")}
+    @font-face{font-family:"Lora";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/lora-700-latin.woff2") format("woff2")}
+    @font-face{font-family:"Fredoka";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/fredoka-700-latin.woff2") format("woff2")}
+    @font-face{font-family:"Kalam";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/kalam-700-latin.woff2") format("woff2")}
+    :root{--blue:#00649c;--deep:#064e78;--orange:#f59a23;--ink:#123d58;--muted:#58758a;--shadow:0 16px 40px rgba(2,72,111,.12);--serif:"Lora",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--ink);font-size:16px;line-height:1.55;background:#fff}img{max-width:100%;display:block}a{color:inherit;text-decoration:none}.page-width{width:min(1160px,calc(100% - 48px));margin-inline:auto}
+    .announcement{background:var(--blue);color:#fff;text-align:center;font-size:.82rem;font-weight:700;letter-spacing:.02em;padding:7px 20px}.site-header{height:78px;padding:0 max(24px,calc((100% - 1160px)/2));display:flex;align-items:center;gap:36px;background:#fff;position:sticky;top:0;z-index:20;box-shadow:0 4px 16px rgba(10,74,108,.07)}.brand img{width:160px;max-height:62px;object-fit:contain}.site-header>.button{margin-left:auto}
+    .button{display:inline-flex;align-items:center;justify-content:center;gap:12px;border:0;border-radius:999px;padding:15px 25px;background:linear-gradient(135deg,#fca526,#ed841a);color:#fff;font-weight:800;box-shadow:0 8px 20px rgba(239,135,26,.24)}.button-small{padding:11px 19px;font-size:.86rem}
+    .hero{background:linear-gradient(120deg,#087cb9 0%,#00649c 64%,#064e78 100%);color:#fff;overflow:hidden}.hero-inner{min-height:570px;display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:30px;position:relative}.hero-copy{padding:68px 0 80px;position:relative;z-index:2;transform:translateY(-28px)}.hero h1{font-family:var(--serif);letter-spacing:-.035em;line-height:1.03;font-size:clamp(3.2rem,5vw,5.7rem);margin:0 0 22px;max-width:650px}.hero h1 span{color:var(--orange)}.hero-lead{font-size:1.18rem;line-height:1.55;max-width:610px;margin:0 0 28px;color:#eef9ff}.fine-print{font-size:.88rem;color:#dcedf6;margin:18px 0 0}.fine-print strong{color:#fff}
+    .hero-art{align-self:stretch;position:relative;display:flex;align-items:flex-end;justify-content:center}.hero-art picture{display:contents}.hero-art img{width:112%;max-width:none;max-height:590px;object-fit:contain;object-position:center bottom;position:relative;z-index:2;transform:translateY(-42px) scale(1.08);transform-origin:center bottom}.hero-glow{position:absolute;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.11);top:30px;right:-20px}.hero-note{position:absolute;color:rgba(255,255,255,.13);font-size:5rem;font-weight:800;z-index:1}.note-one{right:18%;top:1%}
+    .trust-wrap{height:0;position:relative;z-index:5}.trust-bar{transform:translateY(-50%);background:#fff;border-radius:15px;box-shadow:var(--shadow);display:grid;grid-template-columns:repeat(4,1fr);padding:23px 10px}.trust-item{display:flex;justify-content:center;align-items:center;gap:13px;padding:0 22px;border-right:1px solid #dbe9ef}.trust-item:last-child{border-right:0}.trust-icon{color:var(--orange);font-size:1.7rem}.trust-icon svg{width:32px;height:32px;display:block;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.trust-item p{margin:0;line-height:1.25}.trust-item strong,.trust-item small{display:block}.trust-item strong{font-size:.92rem}.trust-item small{font-size:.77rem;color:var(--muted);margin-top:4px}
+    @media(max-width:900px){.site-header{height:68px;padding:0 20px;gap:14px}.brand img{width:125px}.hero-inner{grid-template-columns:1fr;min-height:0}.hero-copy{padding:62px 0 22px;transform:translateY(-18px)}.hero-art{height:390px}.hero-art img{height:100%;width:106%;max-width:none;transform:translateY(-20px) scale(1.04);transform-origin:center bottom;background-image:url("data:image/webp;base64,UklGRsYFAABXRUJQVlA4WAoAAAAQAAAAPwAALgAAQUxQSIcDAAANmV2I6H8cZwIiIlySALaJJElKcS3v/v95w4yF1qGm0rAfiJiACZBm29abNuc+CUjvyfyn1zuOQdI7PwALPIKImACEXCISavzRenDlTSARISIghBDOBjBcm6RSCmF2YWZJwWxlFsAsptMYCGlihBgwK0g6LRp9+jCYVXpBpGQFMqNWGoLptLGmJSx2TMdkVVqVV89Go1mrsCqtgICIEhuyFUS0wRg6EjMv7ZBBVJIX9wZU+YGAgGBLANVQJgZ3YhpZwlIsHI6VYQKDF6MeEQCAbcgC0BwyJRBLLAdwJ2jmzTxnUFiEERHBlgAADAAM6dhkyYI1B4ImGdgu//YZBpNQMIKjCoiQpskSMidQ9fRFBi2SIHBqAUQ6NizdTzICGZ3uoQL0EjLJDADIzuWs6SEDgCwxg7NOF9mrBCTYxsTOw1gZZmGR0IIMwCTQDnkTHMygxYKoNFkAAJnAbshD4hqFygCBsCIiABOCfeKhnQvxDBB3iKC0Gg0qEgAIjh0uds5kTjZfCIhUZCbPHvyQwDmGs3ZzSgmVksTC6N3kDwEAChLoCzLLVS6bACBJrWar0ejTyP4pEACYBAEwAgpE3FIogaTTC29eDGaLVkIEWxMDE4BAcFIzFYBUWuHZg1e1XkKwbwBiRgRAneulGyCphRe35DsiONBAAABCuKkJJfTpiVUIjmgbSucGPQJJ+DDpERzfcHVNkGg2mAj8n4Z0ArNVCU5peT3MhkRmiwYdzyicxquYaGm2+CBwwpUZiQSMQHxYbDwYleh4ZpPjMG+DQSzQgPEkBBqDd51jmRgF+9/Pp7ECqY4AgoXa4yirhQgc1QxALLH9r/3+MECREErKGGmGJ0/v/DE8xVi4wp42Y82My8/77dME4wlFQkh0++r4d/m7UWcT+2HMxxq3h6k53G+K0DEaJIZAbV/xZ/bFZAmJrMyU47i7m2RQJAKI6QimNttpkWeHkeKa2d7//vRktz9snywTZw0YgXRMITANSQaPlRVxW/++fNwO0/Pt3+XcQw0YTn8HSiusjc9+/fn8erN78fPgugd/3tmNxephOL7Y3/189/HubuGmX46bGmpY5vZhscbDy4Xlybxw28Ov3dPt7umyP7AyUDtDyY3f32/ud9nOxUo1xRhu/7Gkn/9bDq5Il8WjfN7FMOynzgpjcDC3K0wxz83qaDo8xgTFK4QuHqci4zowPEYAVlA4IBgCAABwDQCdASpAAC8APn0ykkekoyGhPVXYAJAPiWwAwRVBfgHKhUt7Bx3cBt1fNicA9Uu3gu3gGpZ1kcOLcOctr3XEBSDRaSelEfl+5D0SnuOZOIAkHUzAubfoQt5dDrDsqnL1J1xlt9vxZzWBLQ5I7NCO4+s8AAD+/s1rbijSLa0sJpfz7XiGyocDyZ0Pdf5pIM7yWrkoZjaRRW63Xt7nqhMNRdlrSmQhdvoVMyS4n0KuigSabRQycf2hEcdXj2wN24IapnadF+d7erAwNsoczGrg4jjmeUBoGEPHmO66LGMgyi/7D2BDVXH9xJsAKzZA94Qfq7bW0UEmeRQ2/c5PLA+vgXoaDSz5OevoM3SM7MHAfmG/K/s8395CCEFyhzXUol5ZdhtWMOsvwTLtRXeicQVSS1TaZP7vscoG9QdwbHnPVnfna5Lfh4PPxNNmlOPRSi/qemPaQ0ZbqDFtZKS6qvICN6og2+/Ov8rKPGpP4K9Blg4ecdvcEC+KxcJLsaeRJPZtxVaxtniLYWeCcOqjFY3AGH0rmI6Q5XR5NSXygcSaH5VDMqT4mW9wELqmd3kugKe2OLnQXaRoQ/F0RkLGA0zHMzXYmpNpPmau+gXMzReKqWDqirco1OdxoMjLb8H+dHq6xM/IzKfwK0TS58L/XeRU/0PENeRKb+Fm2Vk4V+LS62odl4V+ESk6m2zJmz+fKp9/ONAAAAAAAA==");background-repeat:no-repeat;background-position:center bottom;background-size:contain}.hero-art img.is-loaded{background-image:none}.trust-wrap{height:auto;background:#eaf7fc;padding:0 0 38px}.trust-bar{transform:translateY(-25px);grid-template-columns:1fr 1fr}.trust-item{justify-content:flex-start;padding:14px 20px}.trust-item:nth-child(2){border-right:0}.trust-item:nth-child(-n+2){border-bottom:1px solid #dbe9ef}}
+    @media(max-width:620px){body{padding-bottom:0}.page-width{width:min(100% - 32px,1160px)}.announcement{font-size:.7rem;padding:6px 12px}.site-header{display:grid;grid-template-columns:minmax(0,1fr) auto auto;height:68px;padding-inline:12px;gap:8px;position:sticky;top:0}.site-header .brand img{width:112px}.site-header>.button{display:inline-flex;margin-left:0;padding:9px 13px;font-size:.78rem;gap:7px;white-space:nowrap}.site-header .menu-button{margin-left:0}.hero-copy{padding-top:46px;transform:translateY(-12px)}.hero h1{font-size:clamp(2.75rem,13vw,4rem)}.hero-lead{font-size:1.04rem}.hero-art{height:310px}.hero-art img{width:115%;height:100%;max-width:none;transform:translateY(-8px) scale(1.02);transform-origin:center bottom}.trust-bar{padding:8px}.trust-item{padding:13px 10px;gap:9px}.trust-icon{font-size:1.25rem}.trust-item strong{font-size:.78rem}.trust-item small{font-size:.66rem}}
+    @media(max-width:900px){.hero-art img{background-image:none!important}}
+    @media(min-width:901px){.hero-art img.hero-media{background-repeat:no-repeat;background-position:center bottom;background-size:contain}.hero-art img.hero-media.is-loaded{background-image:none}}
+    @media(min-width:901px){.hero-art img.hero-media{width:112%;transform:translate(82px,0) scale(1.08)}}
+    /* Seasonal accents sit behind the hero content. */
+    .hero{position:relative;background:linear-gradient(118deg,#075f91 0%,#064d7b 58%,#073b63 100%)}
+    .hero-snowflakes{position:absolute;inset:0;z-index:1;pointer-events:none;background:url("assets/hero-snowflakes-sixpoint.svg") center center/cover no-repeat;opacity:.52}
+    .hero .hero-gift-button{position:relative}
+    .hero .hero-gift-button::before{content:"";position:absolute;left:-11px;top:-15px;width:56px;height:47px;background:url("assets/hero-gift-bow-illustrated.webp") center/contain no-repeat;transform:rotate(-24deg);pointer-events:none}
+    .hero .button{box-shadow:0 9px 28px rgba(242,151,37,.34),0 0 24px rgba(255,190,90,.16)}
+    @media(max-width:900px){.hero-snowflakes{background-size:100% 100%}}
+  </style>
+  <link rel="preload" href="site.css?v=8" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="site.css?v=8"></noscript>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1057398269259234');
+    fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+  <!-- PostHog Analytics -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog && window.posthog.__loaded)||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}p||((p=t.createElement("script")).type="text/javascript",p.crossOrigin="anonymous",p.async=!0,p.src=s.api_host.replace(".i.posthog.com","-assets.i.posthog.com")+"/static/array.js",p.onerror=function(){p=null},(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r));var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],Object.defineProperty(u,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e}}),Object.defineProperty(u.people,"toString",{configurable:!0,enumerable:!0,writable:!0,value:function(){return u.toString(1)+".people (stub)"}}),o="mu yu bu Su init Vu Gu zu Uu Ku il Wu Yu ju rh oh ah uh hh dh capture getExtension Zu pu gh calculateEventProperties ph register register_once register_for_session unregister unregister_for_session Hu mh getFeatureFlag getFeatureFlagPayload getFeatureFlagResult getAllFeatureFlags isFeatureEnabled reloadFeatureFlags updateFlags updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures on onFeatureFlags onSurveysLoaded onSessionId getSurveys getActiveMatchingSurveys renderSurvey displaySurvey cancelPendingSurvey canRenderSurvey canRenderSurveyAsync wh identify setPersonProperties unsetPersonProperties group resetGroups setPersonPropertiesForFlags resetPersonPropertiesForFlags setGroupPropertiesForFlags resetGroupPropertiesForFlags reset kh shutdown setIdentity clearIdentity get_distinct_id getGroups get_session_id get_session_replay_url alias set_config startSessionRecording stopSessionRecording sessionRecordingStarted captureException addExceptionStep captureLog startExceptionAutocapture stopExceptionAutocapture loadToolbar get_property getSessionProperty yh ih createPersonProfile setInternalOrTestUser bh xu Cu opt_in_capturing opt_out_capturing has_opted_in_capturing has_opted_out_capturing get_explicit_consent_status is_capturing clear_opt_in_out_capturing th debug nl Os getPageViewId captureTraceFeedback captureTraceMetric Du".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    posthog.init('phc_pVwbCDp64g3WN7Nj2aEFDawdSYZ3UB9Dy98yzEoyGYo8', {
+      api_host: 'https://us.i.posthog.com',
+      defaults: '2026-05-30',
+      person_profiles: 'identified_only',
+    })
+  </script>
+  <!-- End PostHog Analytics -->
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=1057398269259234&ev=PageView&noscript=1"></noscript>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="My Music Workshop home"><img src="assets/logo-nav.webp" alt="My Music Workshop" decoding="async"></a>
+    <nav class="desktop-nav" aria-label="Page navigation">
+      <a href="#how-it-works">How It Works</a>
+      <a href="#what-they-learn">What They’ll Learn</a>
+      <a href="#whats-included">What’s Included</a>
+      <a href="#why-mmw">Why MMW</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="button button-small" href="#pricing-toggle">Gift a Year <span>→</span></a>
+    <button class="menu-button" type="button" aria-label="Open page navigation" aria-controls="mobile-page-nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+  <nav class="mobile-nav" id="mobile-page-nav" aria-label="Mobile page navigation">
+    <a href="#how-it-works">How It Works</a>
+    <a href="#what-they-learn">What They’ll Learn</a>
+    <a href="#whats-included">What’s Included</a>
+    <a href="#why-mmw">Why MMW</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-snowflakes" aria-hidden="true"></div>
+      <div class="hero-inner page-width">
+        <div class="hero-copy">
+          <h1>Give the <span>Gift of Music</span></h1>
+          <p class="hero-lead">Kids ages 4–12 can learn piano from home with fun, interactive lessons. They’ll build skills step by step, play along with songs, and discover the joy of expressing themselves through music.</p>
+          <a class="button hero-gift-button" href="#pricing-toggle">Gift a Year <span>→</span></a>
+          <p class="fine-print"><strong>$120 for a full year.</strong><br>Their year doesn’t start until they redeem your gift.<br><span class="hero-guarantee"><strong>14-day money-back guarantee.</strong></span></p>
+        </div>
+        <div class="hero-art">
+          <div class="hero-glow"></div>
+          <picture>
+            <source media="(max-width: 700px)" srcset="assets/piano-hero-clean-edge.png">
+            <img class="hero-media" src="assets/piano-hero-clean-edge.png" width="1442" height="1091" alt="A child smiling while playing a digital piano" loading="eager" fetchpriority="high" decoding="sync">
+          </picture>
+          <div class="hero-note note-one">♫</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-wrap" aria-label="Program highlights">
+      <div class="trust-bar page-width">
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="4" rx="1"/><path d="M5 12v9h14v-9M12 8v13M12 8H7.5a2.5 2.5 0 1 1 2.4-3.2L12 8Zm0 0h4.5a2.5 2.5 0 1 0-2.4-3.2L12 8Z"/></svg></span><p><strong>Easy to give</strong><small>Share a gift link when you’re ready</small></p></div>
+    <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 7C9.2 5.5 6.5 5.3 3 6v13c3.5-.7 6.2-.5 9 1 2.8-1.5 5.5-1.7 9-1V6c-3.5-.7-6.2-.5-9 1ZM12 7v13M17 14v-5l2-.5"/><circle cx="16" cy="14" r="1"/></svg></span><p><strong>Beginner-friendly</strong><small>No music experience needed</small></p></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V5l8-3 8 3v8Z"/><path d="m9 12 2 2 4-4"/></svg></span><p><strong>Safe & ad-free</strong><small>Made for kids</small></p></div>
+        <div class="trust-item"><span class="trust-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78Z"/></svg></span><p><strong>Created by educators</strong><small>Founded in 2009</small></p></div>
+      </div>
+    </section>
+
+    <section class="section week" id="how-it-works">
+      <div class="page-width">
+        <div class="section-heading">
+          <h2>A Gift That <span>Grows With Them.</span></h2>
+          <p>See what a year of learning piano can do for them. They can build skills, discover the joy of playing music, and find something they may love for a lifetime.</p>
+        </div>
+        <div class="milestone-grid">
+          <article class="photo-card"><picture class="week-card-picture"><source media="(max-width: 620px)" srcset="assets/week-day-1-responsive-mobile-v2.webp"><source media="(max-width: 900px)" srcset="assets/week-day-1-responsive-tablet.webp"><img src="assets/week-day-1-responsive-desktop.webp" alt="Young beginner following a My Music Workshop piano lesson at home" loading="lazy" decoding="async"></picture><div class="card-body"><span class="step-icon day-badge" aria-label="Step 1"><span>STEP</span><strong>1</strong></span><h3>Start Playing With Confidence</h3><p>Clear guidance helps them get familiar with the keys and start playing from the very first lesson.</p></div></article>
+          <span class="progress-arrow" aria-hidden="true"></span>
+          <article class="photo-card"><picture class="week-card-picture"><source media="(max-width: 620px)" srcset="assets/week-day-3-responsive-mobile-v2.webp"><source media="(max-width: 900px)" srcset="assets/week-day-3-responsive-tablet.webp"><img src="assets/week-day-3-responsive-desktop.webp" alt="Child playing piano along with a My Music Workshop lesson" loading="lazy" decoding="async"></picture><div class="card-body"><span class="step-icon day-badge" aria-label="Step 2"><span>STEP</span><strong>2</strong></span><h3>More Reasons to Keep Playing</h3><p>A full catalog of lessons, jam-along practice music, and built-in rewards make learning fun and enriching.</p></div></article>
+          <span class="progress-arrow" aria-hidden="true"></span>
+          <article class="photo-card"><picture class="week-card-picture"><source media="(max-width: 620px)" srcset="assets/week-day-7-responsive-mobile.webp"><source media="(max-width: 900px)" srcset="assets/week-day-7-responsive-tablet.webp"><img src="assets/week-day-7-responsive-desktop.webp" alt="A parent and child celebrating progress together at the piano" loading="lazy" decoding="async"></picture><div class="card-body"><span class="step-icon day-badge" aria-label="Step 3"><span>STEP</span><strong>3</strong></span><h3>Music They’ll Be Proud to Share</h3><p>As their skills progress, they’ll be excited to show you what they’ve learned.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section lesson-band" id="what-they-learn">
+      <div class="page-width"><div class="section-heading light"><p class="eyebrow eyebrow-light">Our piano lessons</p><h2>Their Piano Skills Will Grow, <span>Step by Step.</span></h2><p>What begins with simple one-hand melodies builds toward familiar songs, playing with both hands, scales and chords, and progressions they can use in popular music.</p></div>
+        <div class="lesson-scroller">
+          <div class="lesson-step lesson-step-first"><span class="lesson-path-label">Start here</span><span class="lesson-path-marker" aria-hidden="true"></span><button class="lesson-card" data-demo="Reading and Playing Notes" data-video="assets/cde-edc-lesson-clip.mp4" aria-label="Play reading and playing notes video preview"><span class="lesson-media"><img src="assets/video-reading-notes.webp" alt="Reading and playing notes piano lesson" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▶</span></span><strong class="lesson-caption">Play Simple One-Hand Melodies</strong></button></div>
+          <div class="lesson-step"><span class="lesson-path-marker" aria-hidden="true"></span><button class="lesson-card" data-demo="Twinkle, Twinkle, Little Star" data-video="assets/twinkle-teaching-clip.mp4" aria-label="Play Twinkle, Twinkle, Little Star video preview"><span class="lesson-media"><img src="assets/video-twinkle.webp" alt="Twinkle, Twinkle, Little Star piano lesson" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▶</span></span><strong class="lesson-caption">Learn Familiar Songs</strong></button></div>
+          <div class="lesson-step"><span class="lesson-path-marker" aria-hidden="true"></span><button class="lesson-card" data-demo="Jam Along" data-video="assets/lesson-28-jam-both-hands-clip.mp4" aria-label="Play Jam Along video preview"><span class="lesson-media"><img src="assets/video-jam-along.webp" alt="Lesson 40 Jam Along piano activity" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▶</span></span><strong class="lesson-caption">Begin Playing With Both Hands</strong></button></div>
+          <div class="lesson-step"><span class="lesson-path-marker" aria-hidden="true"></span><button class="lesson-card" data-demo="E Minor Chord" data-video="assets/e-minor-chord-clip.mp4" aria-label="Play E Minor chord video preview"><span class="lesson-media"><img src="assets/video-e-minor-chord.webp" alt="E Minor chord piano lesson" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▶</span></span><strong class="lesson-caption">Learn Scales and Chords</strong></button></div>
+          <div class="lesson-step lesson-step-last"><span class="lesson-path-label">Skills keep building</span><span class="lesson-path-marker" aria-hidden="true"></span><button class="lesson-card" data-demo="Chord Progression Lesson" data-video="assets/lesson-67-learn-clip.mp4" aria-label="Play chord progression lesson video preview"><span class="lesson-media"><img src="assets/video-chord-progression.webp" alt="Chord progression piano lesson" loading="lazy" decoding="async"><span class="play" aria-hidden="true">▶</span></span><strong class="lesson-caption">Use Chord Progressions Found in Popular Songs</strong></button></div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section testimonial-section">
+      <div class="page-width">
+        <div class="section-heading testimonial-heading">
+          <p class="eyebrow">Straight from parents</p>
+          <h2>Kids Love <span>My Music Workshop.</span></h2>
+        </div>
+        <div class="review-card-grid" role="region" tabindex="0" aria-label="Three parent testimonials">
+          <article class="review-card">
+            <div class="review-author"><span class="review-avatar avatar-bailey" role="img" aria-label="Bailey's profile photo"></span><div><strong>Bailey H.</strong><span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div></div>
+            <blockquote>“We started the trial today. <strong>My son is already through lesson 5</strong> and got ready for bed in record time so that he could stay up longer to keep going.”</blockquote>
+          </article>
+          <article class="review-card review-card-featured">
+            <div class="review-author"><span class="review-avatar avatar-jackie" role="img" aria-label="Jackie's profile photo"></span><div><strong>Jackie B.</strong><span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div></div>
+            <blockquote>“Thank you for this incredible program. <strong>My son just placed 3rd overall in a talent show</strong> where he was the youngest performer by almost 10 years. Thank you, My Music Workshop.”</blockquote>
+          </article>
+          <article class="review-card">
+            <div class="review-author"><span class="review-avatar avatar-katie" role="img" aria-label="Katie's profile photo"></span><div><strong>Katie B.</strong><span class="review-stars" role="img" aria-label="5 out of 5 stars">★★★★★</span></div></div>
+            <blockquote>“Let me just say <strong>BEST music app EVER.</strong> My kids are LOVING it. Best decision!”</blockquote>
+          </article>
+        </div>
+        <p class="review-swipe-hint" aria-hidden="true">Swipe to read more →</p>
+        <p class="testimonial-source">Real comments from verified members.</p>
+      </div>
+    </section>
+
+    <section class="section rewards fun-experience">
+      <div class="page-width">
+        <div class="section-heading">
+          <p class="eyebrow">Music is meant to be fun</p>
+          <h2>Turn Practice Into <span>Play.</span></h2>
+          <p>Rewards, characters, instruments, and music rooms give kids more reasons to keep coming back.</p>
+        </div>
+
+        <div class="fun-world-panel">
+          <div class="fun-world-gallery" aria-label="A musical world children can make their own">
+            <button class="fun-world-tile fun-world-musician reward-image-trigger" type="button" aria-label="Expand musician characters image">
+              <img src="assets/musician-character-lineup.webp" alt="Four musician characters children can choose from" loading="lazy" decoding="async">
+              <span>Choose Their Musician</span>
+            </button>
+            <button class="fun-world-tile fun-world-rewards reward-image-trigger" type="button" aria-label="Expand Rockstar Rewards image">
+              <img src="assets/rockstar-rewards.webp" alt="Golden Rockstar Reward coins earned through musical progress" loading="lazy" decoding="async">
+              <span>Earn Rewards</span>
+            </button>
+            <button class="fun-world-tile fun-world-instruments reward-image-trigger" type="button" aria-label="Expand instrument collection image">
+              <img src="assets/instrument-collection.webp" alt="A colorful collection of piano, violin, drums, and guitars" loading="lazy" decoding="async">
+              <span>Collect Instruments</span>
+            </button>
+            <button class="fun-world-tile fun-world-rooms reward-image-trigger" type="button" aria-label="Expand music rooms image">
+              <img src="assets/music-room-carousel.webp" alt="A selection of customizable music rooms" loading="lazy" decoding="async">
+              <span>Build Music Rooms</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section music-world" id="whats-included">
+      <div class="page-width"><div class="section-heading"><p class="eyebrow">One membership, so much to explore</p><h2>They Came for Piano. They Get a <span>Whole World of Music.</span></h2><p>Piano may be where they begin, but every plan includes full access to the entire program. They can explore drums, ukulele, singing, music reading, rhythm, games, activities, rewards, and more.</p></div>
+        <div class="instrument-grid">
+          <button class="instrument" aria-expanded="false"><img src="assets/program-piano.webp" alt="Mr. Elias teaching piano notes and finger placement" loading="lazy" decoding="async"><span><strong>Piano</strong><small>Step-by-step lessons from the basics to real skills</small></span><b>›</b></button>
+          <button class="instrument" aria-expanded="false"><img src="assets/program-drums.webp" alt="Mr. Elias teaching drum-set rhythms with musical notation" loading="lazy" decoding="async"><span><strong>Drums</strong><small>Rhythm, technique, and drum beats kids can use right away</small></span><b>›</b></button>
+          <button class="instrument" aria-expanded="false"><img src="assets/program-ukulele.webp" alt="Mr. Elias demonstrating a C chord on ukulele" loading="lazy" decoding="async"><span><strong>Ukulele</strong><small>Chords, strumming, and play-along songs</small></span><b>›</b></button>
+          <button class="instrument" aria-expanded="false"><img src="assets/program-singing.webp" alt="Mr. Elias teaching melody and harmony singing" loading="lazy" decoding="async"><span><strong>Singing</strong><small>Melody, harmony, and healthy vocal skills</small></span><b>›</b></button>
+          <button class="instrument instrument-reading" aria-expanded="false"><img src="assets/program-reading-rhythm.webp" alt="Mr. Elias teaching quarter-note accents and rhythm counting" loading="lazy" decoding="async"><span><strong>Music Reading &amp; Rhythm</strong><small>Learn notes, rhythms, patterns, and the language of music</small></span><b>›</b></button>
+          <button class="instrument instrument-activities" aria-expanded="false"><img src="assets/program-activities-games.webp" alt="Music Studio Jr. activity with drums, bass, guitar, and keyboard tracks" loading="lazy" decoding="async"><span><strong>Activities &amp; Games</strong><small>Explore composition and music creation through interactive activities</small></span><b>›</b></button>
+        </div>
+        <p class="nothing-held-back">One year. Full access to all of our instruments, lessons, games and more.</p>
+      </div>
+    </section>
+
+<section class="section unlocked">
+  <div class="page-width split-layout reverse-mobile"><div class="device-wrap"><img src="assets/everything-included-devices.webp" alt="My Music Workshop Home Stage on a tablet with a piano lesson on a phone" loading="lazy" decoding="async"></div><div><p class="eyebrow">Learning that fits real life</p><h2>Great Music Lessons, <span>On Their Schedule.</span></h2><p>After school, on weekends, or whenever they’re ready to play, music lessons fit into their day.</p><p class="subline">No commuting. No fixed lesson time. Just open the program and go.</p></div></div>
+</section>
+
+    <section class="section pricing" id="plans">
+      <div class="page-width"><div class="section-heading"><p class="eyebrow">The Gift of Music</p><h2>A Whole Year to <span>Explore and Learn.</span></h2><p>Piano, drums, ukulele, singing, interactive activities, and more: all in one annual membership they can enjoy at home.</p></div>
+        <article class="price-card" id="pricing-toggle">
+          <span class="free-badge">Gift Membership</span>
+          <div class="price-main">
+            <h3 id="plan-name">Yearly membership</h3>
+            <div class="price"><sup>$</sup><strong id="price-number">120</strong><span>/year</span></div>
+            <p id="billing-copy">Pay today.<br>Their year starts when they redeem your gift.<br>Renews yearly. Simple to cancel.</p>
+          </div>
+          <ul class="check-list"><li>Full access to My Music Workshop</li><li>Piano, drums, ukulele and singing lessons, plus games and activities</li><li>Step-by-step learning at their own pace</li><li>An invitation link you can share when you’re ready</li></ul>
+          <a class="button price-cta" href="https://www.mymusicworkshop.com/signup/">Gift a Year <span>→</span></a>
+          <p class="gift-guarantee"><strong>14-day money-back guarantee</strong><br>The 14 days begin when the gift is redeemed.</p>
+        </article>
+        <p class="currency-note">Prices are shown in USD. Outside the U.S., your payment will be converted to your local currency at the current exchange rate.</p>
+      </div>
+    </section>
+
+    <section class="section worries">
+      <div class="page-width"><div class="section-heading"><p class="eyebrow">Start with confidence</p><h2>Giving Music as a Gift? <span>Here’s How It Works.</span></h2></div>
+        <div class="worry-grid gift-steps">
+          <article class="worry-card gift-step">
+            <div class="gift-step-heading"><span class="worry-icon" aria-hidden="true">1</span><h3>Buy now, give it when you’re ready</h3></div>
+            <p>Purchase the yearly membership today. We’ll give you an invitation link to share with the child’s parent or guardian whenever you choose.</p>
+          </article>
+          <article class="worry-card gift-step">
+            <div class="gift-step-heading"><span class="worry-icon" aria-hidden="true">2</span><h3>Their year begins at redemption</h3></div>
+            <p>The parent or guardian uses the link to set up their own login. Their full year of access and the 14-day money-back guarantee begin then.</p>
+          </article>
+          <article class="worry-card gift-step">
+            <div class="gift-step-heading"><span class="worry-icon" aria-hidden="true">3</span><h3>Keep the music going</h3></div>
+            <p>The gift renews each year from the redemption date, so they can keep learning without interruption. We’ll remind you before renewal, and you can cancel if you don’t want the plan to renew.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section comparison" id="why-mmw">
+      <div class="page-width narrow"><div class="section-heading"><p class="eyebrow">A flexible option for families</p><h2>A High-Quality Alternative to <span>Traditional Music Lessons</span></h2><p>Private teachers can be a great fit. My Music Workshop gives families another way to help kids learn, with less scheduling, no commuting, and a much smaller commitment to get started.</p></div>
+        <div class="comparison-table" role="table" aria-label="My Music Workshop and traditional lessons comparison">
+          <div class="table-row table-head" role="row"><span aria-hidden="true"></span><strong>My Music Workshop</strong><strong>Traditional Lessons</strong></div>
+          <div class="table-row cost-row" role="row"><span>Cost over 12 months</span><strong data-column="My Music Workshop">$120</strong><em data-column="Traditional Lessons">$1,440–$3,840*</em></div>
+          <div class="table-row" role="row"><span>Driving across town</span><strong data-column="My Music Workshop">Never</strong><em data-column="Traditional Lessons">Weekly</em></div>
+          <div class="table-row" role="row"><span>Replay any lesson</span><strong data-column="My Music Workshop">Unlimited</strong><em data-column="Traditional Lessons">Pay again</em></div>
+          <div class="table-row" role="row"><span>More than one child</span><strong data-column="My Music Workshop">$29/year per additional student</strong><em data-column="Traditional Lessons">Typically priced per child</em></div>
+          <div class="table-row" role="row"><span>Practice built in</span><strong data-column="My Music Workshop">Yes — Jam Alongs</strong><em data-column="Traditional Lessons">You're on your own</em></div>
+        </div>
+        <p class="comparison-note">*Traditional lesson cost is based on $120–$320 per month for 12 months.</p>
+      </div>
+    </section>
+
+    <section class="section founder">
+      <div class="page-width founder-grid"><img class="founder-portrait" src="assets/mr-elias-podcast.webp" alt="Mr. Elias, creator of My Music Workshop, speaking into a podcast microphone" loading="lazy" decoding="async"><div><p class="eyebrow">Meet Mr. Elias</p><h2>Not All Online Music Programs Are <span>Created Equal.</span></h2><p>My Music Workshop is designed around the way children actually learn: clear explanations, practical skills, repetition, and plenty of opportunities to play.</p><ul class="check-list"><li>Created by music educators with decades of experience</li><li>Designed specifically for kids ages 4–12</li><li>Focused on real musical skills, not just copying notes</li><li>Warm, encouraging, and easy to follow</li></ul><button class="text-link founder-bio-open" type="button">Meet Mr. Elias →</button></div></div>
+    </section>
+
+    <section class="school-strip" aria-labelledby="trusted-heading">
+      <div class="page-width trust-panel">
+        <div class="trust-panel-copy">
+          <p class="eyebrow">Trusted in homes, schools, and districts</p>
+          <h2 id="trusted-heading">From <span>Living Rooms to Classrooms</span> Across the Country.</h2>
+          <p>Families and educators have used My Music Workshop to help children build real musical skills at home and at school.</p>
+        </div>
+        <p class="school-logo-intro">A few of the schools and districts we’ve worked with</p>
+        <div class="school-logo-carousel" tabindex="0" aria-label="Schools and districts that have worked with My Music Workshop">
+          <div class="school-logo-track">
+            <div class="school-logo-group">
+              <div class="school-logo"><img src="assets/school-logos/bright-horizons.png" alt="Bright Horizons Early Education and Preschool" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/del-mar.png" alt="Del Mar Union School District" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/discovery-isle.png" alt="Discovery Isle Child Development Center" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/encinitas-union.png" alt="Encinitas Union School District" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/la-petite.png" alt="La Petite Academy" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/leport-montessori.png" alt="LePort Montessori" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/montessori-american.png" alt="Montessori American School" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/prestige-preschool.png" alt="Prestige Preschool Academy" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/san-diego-unified.png" alt="San Diego Unified School District" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="school-logo-group" aria-hidden="true">
+              <div class="school-logo"><img src="assets/school-logos/bright-horizons.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/del-mar.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/discovery-isle.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/encinitas-union.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/la-petite.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/leport-montessori.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/montessori-american.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/prestige-preschool.png" alt="" loading="lazy" decoding="async"></div>
+              <div class="school-logo"><img src="assets/school-logos/san-diego-unified.png" alt="" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div class="page-width narrow"><div class="section-heading"><p class="eyebrow">Questions? We’ve got you covered.</p><h2>Questions About <span>Your Gift.</span></h2></div>
+        <div class="accordion">
+          <article><button aria-expanded="false">How do I send the gift?<span>+</span></button><div><p>After purchase, you’ll receive an invitation link to share whenever you’re ready. The parent or guardian can use it to set up their own login.</p></div></article>
+          <article><button aria-expanded="false">Do I need the parent’s email address to buy it?<span>+</span></button><div><p>No. You can buy the gift now and share the invitation link with the parent or guardian later.</p></div></article>
+          <article><button aria-expanded="false">When does the year begin?<span>+</span></button><div><p>The full year begins when the parent or guardian redeems the gift and sets up their login, even if you purchased it earlier.</p></div></article>
+          <article><button aria-expanded="false">How does the 14-day money-back guarantee work?<span>+</span></button><div><p>The 14 days begin when the gift is redeemed, not when you buy it. If the program isn’t a good fit, contact us within those 14 days to request a refund.</p></div></article>
+          <article><button aria-expanded="false">What happens after the first year?<span>+</span></button><div><p>If they love learning music, they can keep going! The gift renews yearly from the date it was redeemed, so their access continues without interruption. We’ll remind you before renewal, and you can cancel if you don’t want the plan to renew.</p></div></article>
+          <article><button aria-expanded="false">Can I give it to more than one child?<span>+</span></button><div><p>Yes. You can choose additional student spaces when you purchase the gift. Each additional student is $29 per year.</p></div></article>
+          <article><button aria-expanded="false">What will they be able to learn?<span>+</span></button><div><p>They’ll have access to piano, drums, ukulele, and singing lessons, plus music reading, play-along practice, games, activities, and rewards.</p></div></article>
+          <article><button aria-expanded="false">Do they need an instrument to get started?<span>+</span></button><div><p>A basic keyboard works well for piano lessons. If they don’t have one yet, they can explore other parts of the program, including singing, music basics, and activities.</p></div></article>
+          <article><button aria-expanded="false">Do they need any music experience?<span>+</span></button><div><p>No. The lessons begin with the basics and guide kids step by step. They can learn at their own pace.</p></div></article>
+          <article><button aria-expanded="false">What device do they need?<span>+</span></button><div><p>My Music Workshop works in a web browser on computers, tablets, and phones. There’s no app to download.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing-cta">
+      <span class="closing-note closing-piano left" aria-hidden="true"><svg viewBox="0 0 160 84"><rect class="keyboard-body" x="6" y="10" width="148" height="64" rx="8"/><path class="white-key-lines" d="M27 10v64M48 10v64M69 10v64M90 10v64M111 10v64M132 10v64"/><rect class="black-key" x="22" y="10" width="10" height="34" rx="2"/><rect class="black-key" x="43" y="10" width="10" height="34" rx="2"/><rect class="black-key" x="85" y="10" width="10" height="34" rx="2"/><rect class="black-key" x="106" y="10" width="10" height="34" rx="2"/><rect class="black-key" x="127" y="10" width="10" height="34" rx="2"/></svg></span>
+      <div><p class="eyebrow eyebrow-light">A year of music starts with you</p><h2>Give Them Something They Can Grow With.</h2><p>A year to learn, play, and discover what they can do with music. Buy the gift now and share it whenever you’re ready.</p><a class="button button-white" href="#pricing-toggle">Gift a Year <span>→</span></a></div>
+      <span class="closing-note right" aria-hidden="true">♫</span>
+    </section>
+  </main>
+
+  <footer><div class="page-width"><img src="assets/logo-nav.webp" alt="My Music Workshop" loading="lazy" decoding="async"><p>Music lessons designed for kids ages 4–12.</p><nav><a href="https://www.mymusicworkshop.com/privacy-policy/">Privacy</a><a href="https://www.mymusicworkshop.com/terms/">Terms</a></nav><small>© 2026 My Music Workshop</small></div></footer>
+  <dialog class="demo-modal"><button class="modal-close" aria-label="Close video">×</button><video class="demo-video" controls playsinline preload="none"></video><div class="demo-placeholder"><span>▶</span><h3>Video coming soon</h3><p>The real lesson clip will load here only after a visitor presses play.</p></div></dialog>
+  <dialog class="founder-bio-modal" aria-labelledby="founder-bio-title">
+    <button class="founder-bio-close" type="button" aria-label="Close Mr. Elias bio">×</button>
+    <div class="founder-bio-visual">
+      <img class="founder-bio-primary" src="assets/elias-teaching.webp" alt="Mr. Elias teaching music to a group of young children" loading="lazy" decoding="async">
+      <div class="founder-bio-secondary-strip">
+        <figure class="founder-bio-secondary"><img src="assets/elias-drumming.webp" alt="Mr. Elias recording drums in a professional studio" loading="lazy" decoding="async"></figure>
+        <figure class="founder-bio-secondary"><img src="assets/elias-family.webp" alt="Mr. Elias with his wife, Lianna, and their two children" loading="lazy" decoding="async"></figure>
+      </div>
+    </div>
+    <div class="founder-bio-copy">
+      <p class="eyebrow">The teacher behind the program</p>
+      <h2 id="founder-bio-title">Hi, I’m Mr. Elias.</h2>
+      <p>I studied both education and music in college and have spent more than 20 years working with and teaching children. I also trained as a professional drummer at P.I.T. in Hollywood and have decades of experience performing and recording music.</p>
+      <p class="founder-credentials">Father of two <span>•</span> 20+ years teaching children <span>•</span> Studied music &amp; education <span>•</span> Professional musician</p>
+      <p>My wife, Lianna, and I created My Music Workshop to give children a clear and encouraging way to build practical music skills at home. Inside the program, I guide kids through piano, drums, rhythm, music reading, and more using the same energetic, step-by-step approach I’ve used with my students for decades.</p>
+    </div>
+  </dialog>
+  <dialog class="reward-lightbox" aria-label="Expanded card image">
+    <button class="reward-lightbox-close" type="button" aria-label="Close expanded image">×</button>
+    <img src="" alt="">
+  </dialog>
+  <dialog class="checkout-modal" aria-label="Start your free trial">
+    <div class="checkout-modal-shell">
+      <button class="checkout-modal-close" type="button" aria-label="Close checkout">×</button>
+      <div class="checkout-brand"><img src="assets/logo-nav.webp" alt="My Music Workshop" decoding="async"></div>
+      <div class="checkout-frame-wrap">
+        <div class="checkout-loading" aria-live="polite">Loading secure checkout…</div>
+        <iframe class="checkout-frame" title="My Music Workshop secure signup" allow="payment" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </dialog>
+  <script src="script.js?v=8"></script>
+  <script>
+  // PostHog: record a trial when the app.mymusicworkshop.com signup window reports success.
+  // v2 (Nov 5, 2026): sends immediately via sendBeacon because the app redirects the page ~0.5s later.
+  (function () {
+    var APP_ORIGIN = 'https://app.mymusicworkshop.com';
+    window.addEventListener('message', function (e) {
+      if (e.origin !== APP_ORIGIN || !e.data || e.data.type !== 'mmw_trial_started') return;
+      if (!window.posthog) return;
+      var d = e.data;
+      var email = d.email ? String(d.email).toLowerCase() : null;
+      var props = {
+        plan_code: d.plan_code || null,
+        plan_type: /year/i.test(d.plan_code || '') ? 'Yearly' : (/month/i.test(d.plan_code || '') ? 'Monthly' : 'Other'),
+        recurly_account_code: d.account_code || null,
+        coupon_code: d.coupon_code || null,
+        email: email,
+        signup_page: window.location.pathname
+      };
+      if (email) props.$set = { email: email };
+      try {
+        window.posthog.capture('trial_started', props, { send_instantly: true, transport: 'sendBeacon' });
+      } catch (err) {
+        window.posthog.capture('trial_started', props);
+      }
+      if (email) {
+        try { window.posthog.identify(email, { email: email }); } catch (err) {}
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
