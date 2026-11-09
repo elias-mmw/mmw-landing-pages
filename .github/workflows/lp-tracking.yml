@@ -1,0 +1,36 @@
+# Puts the current landing page tracking (shared/lp-tracking.js) on every page
+# folder whenever something is pushed, so a new or re-exported page can't go
+# out without it. Fails (red X on GitHub) if a page has lost the Meta pixel,
+# PostHog or the trial_started listener, which must be fixed by hand.
+name: Landing page tracking
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  tracking:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Add tracking to any page missing it
+        if: github.event_name != 'pull_request'
+        run: |
+          python3 tools/lp_tracking.py sync
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "Add current landing page tracking to every page"
+            git push
+          fi
+      - name: Check every page
+        run: python3 tools/lp_tracking.py check
