@@ -91,23 +91,6 @@ def main():
     A = os.path.join(DST, "assets")
 
     # ---------- placeholder images ----------
-    hero_t = "Hero: Mr. Elias with a drum lesson on a tablet"
-    hero_d = "Cut-out photo, transparent background, same layout as the piano hero"
-    placeholder(f"{A}/hero-drums-desktop.webp", (1400, 1032), hero_t, hero_d, transparent=True, area=(0.42, 0.12, 0.98, 0.9))
-    placeholder(f"{A}/hero-drums-mobile.webp", (800, 590), hero_t, hero_d, transparent=True, area=(0.06, 0.06, 0.94, 0.94))
-    placeholder(f"{A}/hero-drums-placeholder.webp", (760, 560), hero_t, hero_d, transparent=True, area=(0.42, 0.12, 0.98, 0.9))
-
-    day1_t = "Day 1: child at home holding drumsticks"
-    day1_d = "e.g. tapping the printable paper drum or a practice pad, lesson on a tablet"
-    day7_t = "Day 7: parent and child celebrating at the drums"
-    day7_d = "e.g. high-five at a kid's drum kit or e-kit"
-    for day, t, dsc, sizes in [
-        (1, day1_t, day1_d, {"desktop": (1618, 959), "tablet": (1540, 1100), "mobile": (720, 405)}),
-        (7, day7_t, day7_d, {"desktop": (1399, 854), "tablet": (1099, 785), "mobile": (1000, 556)}),
-    ]:
-        for k, sz in sizes.items():
-            placeholder(f"{A}/drums-week-day-{day}-{k}.webp", sz, t, dsc)
-
     lessons = [
         ("drums-video-1", "VIDEO: Hold the Sticks and Find the Beat", "Getting Started clip (how to hold sticks, bass drum)"),
         ("drums-video-2", "VIDEO: Color-Coded Sticking", "Single Drum lesson clip (red = right hand, blue = left)"),
@@ -140,8 +123,9 @@ def main():
           'content="Online drum lessons built for kids ages 4–12, with bite-sized lessons, built-in practice, and rewards that keep kids engaged."')
     t = r("<title>Online Piano Lessons for Kids | My Music Workshop</title>",
           "<title>Online Drum Lessons for Kids | My Music Workshop</title>")
-    t = r("assets/hero-elias-piano-tablet-placeholder.webp", "assets/hero-drums-placeholder.webp", 2)
-    t = r("assets/hero-elias-piano-tablet-desktop-v2.webp", "assets/hero-drums-desktop.webp", 2)
+    t = r("assets/hero-elias-piano-tablet-placeholder.webp", "https://www.mymusicworkshop.com/wp-content/uploads/2026/05/drums-hero-768x512.webp", 2)
+    t = r("assets/hero-elias-piano-tablet-desktop-v2.webp", "https://www.mymusicworkshop.com/wp-content/uploads/2026/05/drums-hero-1536x1024.webp", 2)
+    t = r('drums-hero-1536x1024.webp" width="1400" height="1032"', 'drums-hero-1536x1024.webp" width="1536" height="1024"')
 
     # hero
     t = r("<h1>Online Piano Lessons <span>Built for Kids</span></h1>",
@@ -149,28 +133,28 @@ def main():
     t = r("build real piano skills at home through bite-sized lessons",
           "build real drum skills at home through bite-sized lessons")
     t, n = re.subn(r'(<source media="\(max-width: 700px\)" srcset=")data:image/webp;base64,[A-Za-z0-9+/=]+(")',
-                   r"\1assets/hero-drums-mobile.webp\2", t)
+                   r"\1https://www.mymusicworkshop.com/wp-content/uploads/2026/05/drums-hero-1024x683.webp\2", t)
     assert n == 1, "hero mobile data URI"
     t = r('alt="Mr. Elias presenting a piano lesson beside a tablet"',
-          'alt="Placeholder: Mr. Elias presenting a drum lesson beside a tablet"')
+          'alt="Smiling boy playing a drum set"')
 
     # first week
-    t = r('srcset="assets/week-day-1-responsive-mobile-v2.webp"', 'srcset="assets/drums-week-day-1-mobile.webp"')
-    t = r('srcset="assets/week-day-1-responsive-tablet.webp"', 'srcset="assets/drums-week-day-1-tablet.webp"')
+    t = r('srcset="assets/week-day-1-responsive-mobile-v2.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2025/02/Boy-playing-drums-from-above-768x576.webp"')
+    t = r('srcset="assets/week-day-1-responsive-tablet.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2025/02/Boy-playing-drums-from-above-1024x768.webp"')
     t = r('src="assets/week-day-1-responsive-desktop.webp" alt="Young beginner following a My Music Workshop piano lesson at home"',
-          'src="assets/drums-week-day-1-desktop.webp" alt="Placeholder: young beginner holding drumsticks during a My Music Workshop lesson"')
+          'src="https://www.mymusicworkshop.com/wp-content/uploads/2025/02/Boy-playing-drums-from-above-1536x1152.webp" alt="Boy following a My Music Workshop drum lesson on a tablet at his drum kit"')
     t = r("<p>They’ll recognize the keys, start playing, and feel successful from the very beginning.</p>",
           "<p>They’ll learn to hold the sticks, find a steady beat, and feel successful from the very beginning. No drum set yet? They can start on our printable paper drum.</p>")
-    t = r('srcset="assets/week-day-3-responsive-mobile-v2.webp"', 'srcset="assets/program-drums.webp"')
-    t = r('srcset="assets/week-day-3-responsive-tablet.webp"', 'srcset="assets/program-drums.webp"')
+    t = r('srcset="assets/week-day-3-responsive-mobile-v2.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/drums-girl-1-768x512.webp"')
+    t = r('srcset="assets/week-day-3-responsive-tablet.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/drums-girl-1-1024x682.webp"')
     t = r('src="assets/week-day-3-responsive-desktop.webp" alt="Child playing piano along with a My Music Workshop lesson"',
-          'src="assets/program-drums.webp" alt="My Music Workshop drum lesson with color-coded drum notation"')
+          'src="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/drums-girl-1-1536x1024.webp" alt="Girl playing drums with her sticks raised"')
     t = r("<h3>Experience What It Feels Like to Play Piano</h3>",
           "<h3>Experience What It Feels Like to Play Drums</h3>")
-    t = r('srcset="assets/week-day-7-responsive-mobile.webp"', 'srcset="assets/drums-week-day-7-mobile.webp"')
-    t = r('srcset="assets/week-day-7-responsive-tablet.webp"', 'srcset="assets/drums-week-day-7-tablet.webp"')
+    t = r('srcset="assets/week-day-7-responsive-mobile.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/Drum-lessons-for-kids-768x512.webp"')
+    t = r('srcset="assets/week-day-7-responsive-tablet.webp"', 'srcset="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/Drum-lessons-for-kids-1024x682.webp"')
     t = r('src="assets/week-day-7-responsive-desktop.webp" alt="A parent and child celebrating progress together at the piano"',
-          'src="assets/drums-week-day-7-desktop.webp" alt="Placeholder: a parent and child celebrating progress together at the drums"')
+          'src="https://www.mymusicworkshop.com/wp-content/uploads/2024/07/Drum-lessons-for-kids-1536x1024.webp" alt="Boy proudly playing drums on a lit stage"')
     t = r("they’ll have learned their first song and made real progress",
           "they’ll have played their first groove and made real progress")
 
