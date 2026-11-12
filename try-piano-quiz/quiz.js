@@ -1,7 +1,7 @@
 /* Quiz pop-up (try-piano-quiz only).
  * Shows a small invitation after 30 seconds, or after 40% scroll once 20 seconds have passed,
  * unless the visitor already opened signup or saw it in the last 7 days.
- * Three questions lead to a personal starting plan (first week, an age tip from Mr. Elias, a lesson clip),
+ * Three questions lead to a personal starting plan (first week, an age tip from Mr. Elias, a 15-second Lesson 1 clip),
  * then a plans screen whose buttons use the page's own price card and signup window.
  * Opening the quiz starts loading the signup windows in the background, so a plan opens without waiting.
  * Add ?quiz=now to the address to see it after 2 seconds (for checking only).
@@ -201,18 +201,18 @@
 
     var peek = el('button', 'mmw-quiz__peek');
     peek.type = 'button';
-    peek.setAttribute('aria-label', 'Play a short clip from their first lessons');
+    peek.setAttribute('aria-label', 'Play a 15-second clip from Lesson 1');
     var poster = el('img');
-    poster.src = 'assets/video-reading-notes.webp';
+    poster.src = 'assets/lesson-1-cde-poster.webp';
     poster.alt = '';
     peek.appendChild(poster);
     peek.appendChild(el('span', 'mmw-quiz__peek-play', '▶'));
-    peek.appendChild(el('span', 'mmw-quiz__peek-label', 'Peek at their first lesson'));
+    peek.appendChild(el('span', 'mmw-quiz__peek-label', 'Peek at Lesson 1'));
     peek.addEventListener('click', function () {
       track('quiz_video_played');
       var video = el('video', 'mmw-quiz__video');
-      video.src = 'assets/cde-edc-lesson-clip.mp4';
-      video.poster = 'assets/video-reading-notes.webp';
+      video.src = 'assets/lesson-1-cde-clip.mp4';
+      video.poster = 'assets/lesson-1-cde-poster.webp';
       video.controls = true;
       video.playsInline = true;
       video.setAttribute('playsinline', '');
