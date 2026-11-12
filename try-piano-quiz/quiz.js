@@ -1,7 +1,8 @@
 /* Quiz pop-up (try-piano-quiz only).
  * Shows a small invitation after 30 seconds, or after 40% scroll once 20 seconds have passed,
  * unless the visitor already opened signup or saw it in the last 7 days.
- * Three questions lead to a short plan whose buttons use the page's own price card and signup window.
+ * Three questions lead to a personal starting plan (first week, an age tip from Mr. Elias, a lesson clip),
+ * then a plans screen whose buttons use the page's own price card and signup window.
  * Opening the quiz starts loading the signup windows in the background, so a plan opens without waiting.
  * Add ?quiz=now to the address to see it after 2 seconds (for checking only).
  */
@@ -44,6 +45,19 @@
     not_yet: 'Day 1: their first three notes, C, D and E, then a Jam Along with the band.',
     a_little: 'They start at Lesson 1 and move at their own pace.',
     lessons_now: 'A fun way to practice between lessons: they play along with the band and earn Rock Stars.'
+  };
+
+  var EXPERIENCE_LABEL = {
+    not_yet: 'Brand new to piano',
+    a_little: 'Played a little',
+    lessons_now: 'Takes lessons now'
+  };
+
+  var AGE_TIP = {
+    '4-5': 'Sit with them for the first few lessons and play along. At this age, 10 minutes and lots of high-fives beats a long session.',
+    '6-7': 'Pick a regular time, like right after school. Let them show you every new Rock Star. Your excitement is their best motivator.',
+    '8-9': 'Let them lead. Kids this age love seeing their progress, so look at it together each week.',
+    '10-12': 'Give them ownership: let them choose when to play and which Jam Along to perform for the family.'
   };
 
   var HOPE_LINE = {
@@ -160,17 +174,79 @@
       window.posthog.register({ quiz_completed: true, quiz_age: answers.age, quiz_experience: answers.experience, quiz_hope: answers.hope });
     } catch (err) {}
 
-    var plan = el('ul', 'mmw-quiz__plan');
-    plan.appendChild(el('li', '', FIRST_STEP[answers.experience]));
-    plan.appendChild(el('li', '', HOPE_LINE[answers.hope]));
+    var label = el('p', 'mmw-quiz__label', 'Piano starter plan · Age ' + answers.age_label + ' · ' + EXPERIENCE_LABEL[answers.experience]);
 
+    var week = el('ol', 'mmw-quiz__week');
+    [
+      ['Day 1', FIRST_STEP[answers.experience]],
+      ['Day 3', 'Playing along with music, building new skills and earning Rock Stars.'],
+      ['Day 7', 'Their first song, and progress they’re proud to show you.']
+    ].forEach(function (day) {
+      var item = el('li');
+      item.appendChild(el('strong', '', day[0]));
+      item.appendChild(el('span', '', day[1]));
+      week.appendChild(item);
+    });
+
+    var hope = el('div', 'mmw-quiz__hope');
+    hope.appendChild(el('p', 'mmw-quiz__small', 'You said: ' + answers.hope_label));
+    hope.appendChild(el('p', '', HOPE_LINE[answers.hope]));
+
+    var tip = el('div', 'mmw-quiz__trust mmw-quiz__tip');
+    tip.appendChild(eliasPhoto());
+    var tipText = el('div');
+    tipText.appendChild(el('p', 'mmw-quiz__small', 'Mr. Elias’s tip for ' + answers.age_label + ' year olds'));
+    tipText.appendChild(el('p', '', AGE_TIP[answers.age]));
+    tip.appendChild(tipText);
+
+    var peek = el('button', 'mmw-quiz__peek');
+    peek.type = 'button';
+    peek.setAttribute('aria-label', 'Play a short clip from their first lessons');
+    var poster = el('img');
+    poster.src = 'assets/video-reading-notes.webp';
+    poster.alt = '';
+    peek.appendChild(poster);
+    peek.appendChild(el('span', 'mmw-quiz__peek-play', '▶'));
+    peek.appendChild(el('span', 'mmw-quiz__peek-label', 'Peek at their first lesson'));
+    peek.addEventListener('click', function () {
+      track('quiz_video_played');
+      var video = el('video', 'mmw-quiz__video');
+      video.src = 'assets/cde-edc-lesson-clip.mp4';
+      video.poster = 'assets/video-reading-notes.webp';
+      video.controls = true;
+      video.playsInline = true;
+      video.setAttribute('playsinline', '');
+      peek.replaceWith(video);
+      if (planScreen && planScreen.indexOf(peek) > -1) planScreen[planScreen.indexOf(peek)] = video;
+      video.play().catch(function () {});
+    });
+
+    var next = el('button', 'mmw-quiz__primary', 'See how to start their free week →');
+    next.type = 'button';
+    next.addEventListener('click', function () {
+      track('quiz_plans_viewed', { age: answers.age, experience: answers.experience, hope: answers.hope });
+      showPlans();
+    });
+
+    planScreen = [
+      el('p', 'mmw-quiz__title', 'Your ' + answers.age_label + ' year old’s starting plan'),
+      label,
+      el('p', 'mmw-quiz__section', 'Their first week'),
+      week,
+      hope,
+      tip,
+      peek,
+      next,
+      retakeLink()
+    ];
+    render(planScreen);
+    panel.scrollTop = 0;
+  }
+
+  function showPlans() {
+    currentStep = 'plans';
     var trust = el('div', 'mmw-quiz__trust');
-    var photo = el('img');
-    photo.src = 'assets/quiz-elias.webp?v=2';
-    photo.alt = 'Mr. Elias';
-    photo.width = 56;
-    photo.height = 56;
-    trust.appendChild(photo);
+    trust.appendChild(eliasPhoto());
     trust.appendChild(el('p', '', 'Video lessons by Mr. Elias, who has been teaching kids music since 2009.'));
 
     var checks = el('ul', 'mmw-quiz__checks');
@@ -197,24 +273,50 @@
       plans.appendChild(card);
     });
 
+    var back = el('button', 'mmw-quiz__link', '← Back to their plan');
+    back.type = 'button';
+    back.addEventListener('click', function () {
+      currentStep = 'plan';
+      showPlanAgain();
+    });
+
+    render([
+      el('p', 'mmw-quiz__title', 'Start their free week'),
+      trust,
+      checks,
+      el('p', 'mmw-quiz__invite', 'See how they like it. Their first week is free. Pick a plan for after the free week:'),
+      plans,
+      back
+    ]);
+    panel.scrollTop = 0;
+  }
+
+  var planScreen = null;
+
+  function showPlanAgain() {
+    if (planScreen) render(planScreen);
+    panel.scrollTop = 0;
+  }
+
+  function eliasPhoto() {
+    var photo = el('img');
+    photo.src = 'assets/quiz-elias.webp?v=2';
+    photo.alt = 'Mr. Elias';
+    photo.width = 56;
+    photo.height = 56;
+    return photo;
+  }
+
+  function retakeLink() {
     var retake = el('button', 'mmw-quiz__link mmw-quiz__retake', 'Retake the quiz');
     retake.type = 'button';
     retake.addEventListener('click', function () {
       track('quiz_retaken');
       answers = {};
+      planScreen = null;
       showQuestion(0);
     });
-
-    render([
-      el('p', 'mmw-quiz__title', 'Here’s how your ' + answers.age_label + ' year old would start'),
-      plan,
-      trust,
-      checks,
-      el('p', 'mmw-quiz__invite', 'See how they like it. Their first week is free. Pick a plan for after the free week:'),
-      plans,
-      retake
-    ]);
-    panel.scrollTop = 0;
+    return retake;
   }
 
   function startSignup(plan) {

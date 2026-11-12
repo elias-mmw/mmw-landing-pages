@@ -40,3 +40,18 @@
 .mmw-quiz__card-note{font-size:12.5px;line-height:1.35;color:var(--muted);margin:0 0 10px;flex:1}
 .mmw-quiz__card .mmw-quiz__primary{font-size:15px;padding:12px 8px}
 .mmw-quiz__card:not(.mmw-quiz__card--best) .mmw-quiz__primary{background:var(--white);color:var(--deep);border:2px solid var(--orange);box-shadow:none;padding:10px 8px}
+.mmw-quiz__label{display:inline-block;font-size:12.5px;font-weight:700;color:var(--deep);background:#fff3e0;border-radius:999px;padding:4px 10px;margin:0 0 14px}
+.mmw-quiz__section{font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.mmw-quiz__week{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.mmw-quiz__week li{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:15px;line-height:1.4}
+.mmw-quiz__week strong{color:var(--orange);font-size:13.5px;padding-top:1px}
+.mmw-quiz__hope{border-left:4px solid var(--orange);background:#fff8ee;border-radius:0 12px 12px 0;padding:10px 12px;margin:0 0 12px}
+.mmw-quiz__hope p{margin:0;font-size:15px;line-height:1.45}
+.mmw-quiz__small{font-size:12.5px!important;font-weight:700;color:var(--muted);margin:0 0 2px!important}
+.mmw-quiz__tip{align-items:flex-start}
+.mmw-quiz__tip p{margin:0}
+.mmw-quiz__peek{position:relative;display:block;width:100%;padding:0;border:0;border-radius:14px;overflow:hidden;cursor:pointer;margin:0 0 14px;background:#000;aspect-ratio:16/9}
+.mmw-quiz__peek img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85}
+.mmw-quiz__peek-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-60%);width:52px;height:52px;border-radius:50%;background:var(--orange);color:var(--white);font-size:20px;display:flex;align-items:center;justify-content:center;padding-left:4px;box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.mmw-quiz__peek-label{position:absolute;left:0;right:0;bottom:0;padding:8px 12px;font:700 14px var(--sans);color:var(--white);background:linear-gradient(transparent,rgba(0,0,0,.65));text-align:left}
+.mmw-quiz__video{display:block;width:100%;border-radius:14px;margin:0 0 14px;background:#000;aspect-ratio:16/9}
