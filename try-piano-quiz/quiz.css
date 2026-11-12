@@ -28,6 +28,15 @@
 .mmw-quiz__checks li{font-size:13.5px;font-weight:600;color:var(--deep)}
 .mmw-quiz__checks li::before{content:"✓ ";color:#2a9d55}
 .mmw-quiz__invite{font-size:15px;font-weight:600;text-align:center;margin:0 0 10px}
-.mmw-quiz__fine{font-size:13px;color:var(--muted);text-align:center;margin:8px 0 0}
-.mmw-quiz__fine button{background:none;border:0;padding:0;font:inherit;font-weight:700;color:var(--blue);text-decoration:underline;cursor:pointer}
 .mmw-quiz__retake{display:block;margin:6px auto 0}
+.mmw-quiz__plans{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 4px}
+@media (max-width:340px){.mmw-quiz__plans{grid-template-columns:1fr}}
+.mmw-quiz__card{position:relative;border:2px solid var(--pale);border-radius:16px;padding:16px 10px 12px;text-align:center;display:flex;flex-direction:column}
+.mmw-quiz__card--best{border-color:var(--orange);background:#fff8ee}
+.mmw-quiz__badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--orange);color:var(--white);font-size:11.5px;font-weight:700;letter-spacing:.03em;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.mmw-quiz__card-name{font-weight:700;font-size:15px;color:var(--deep);margin:0}
+.mmw-quiz__card-price{font-family:var(--serif);font-weight:700;font-size:28px;line-height:1.1;color:var(--deep);margin:2px 0}
+.mmw-quiz__card-price span{font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted)}
+.mmw-quiz__card-note{font-size:12.5px;line-height:1.35;color:var(--muted);margin:0 0 10px;flex:1}
+.mmw-quiz__card .mmw-quiz__primary{font-size:15px;padding:12px 8px}
+.mmw-quiz__card:not(.mmw-quiz__card--best) .mmw-quiz__primary{background:var(--white);color:var(--deep);border:2px solid var(--orange);box-shadow:none;padding:10px 8px}
