@@ -1,7 +1,7 @@
 /* Quiz pop-up (try-piano-quiz only).
  * Shows a small invitation after 30 seconds, or after 40% scroll once 20 seconds have passed,
  * unless the visitor already opened signup or saw it in the last 7 days.
- * Three questions lead to a personal starting plan (first week, an age tip from Mr. Elias, a 15-second Lesson 1 clip),
+ * Three questions lead to a personal starting plan (first week, an age tip from Mr. Elias, a 15-second lesson clip matched to experience),
  * then a plans screen whose buttons use the page's own price card and signup window.
  * Opening the quiz starts loading the signup windows in the background, so a plan opens without waiting.
  * Add ?quiz=now to the address to see it after 2 seconds (for checking only).
@@ -51,6 +51,12 @@
     not_yet: 'Brand new to piano',
     a_little: 'Played a little',
     lessons_now: 'Takes lessons now'
+  };
+
+  var CLIP = {
+    not_yet: { label: 'Peek at Lesson 1', src: 'assets/lesson-1-cde-clip.mp4', poster: 'assets/lesson-1-cde-poster.webp', name: 'Lesson 1' },
+    a_little: { label: 'Peek at a Jam Along', src: 'assets/quiz-jam-along-clip.mp4', poster: 'assets/quiz-jam-along-poster.webp', name: 'a Jam Along' },
+    lessons_now: { label: 'Peek at what’s ahead: chords with both hands', src: 'assets/quiz-chords-clip.mp4', poster: 'assets/quiz-chords-poster.webp', name: 'a later chord lesson' }
   };
 
   var AGE_TIP = {
@@ -199,20 +205,21 @@
     tipText.appendChild(el('p', '', AGE_TIP[answers.age]));
     tip.appendChild(tipText);
 
+    var clip = CLIP[answers.experience];
     var peek = el('button', 'mmw-quiz__peek');
     peek.type = 'button';
-    peek.setAttribute('aria-label', 'Play a 15-second clip from Lesson 1');
+    peek.setAttribute('aria-label', 'Play a 15-second clip from ' + clip.name);
     var poster = el('img');
-    poster.src = 'assets/lesson-1-cde-poster.webp';
+    poster.src = clip.poster;
     poster.alt = '';
     peek.appendChild(poster);
     peek.appendChild(el('span', 'mmw-quiz__peek-play', '▶'));
-    peek.appendChild(el('span', 'mmw-quiz__peek-label', 'Peek at Lesson 1'));
+    peek.appendChild(el('span', 'mmw-quiz__peek-label', clip.label));
     peek.addEventListener('click', function () {
-      track('quiz_video_played');
+      track('quiz_video_played', { clip: clip.src.split('/').pop() });
       var video = el('video', 'mmw-quiz__video');
-      video.src = 'assets/lesson-1-cde-clip.mp4';
-      video.poster = 'assets/lesson-1-cde-poster.webp';
+      video.src = clip.src;
+      video.poster = clip.poster;
       video.controls = true;
       video.playsInline = true;
       video.setAttribute('playsinline', '');
