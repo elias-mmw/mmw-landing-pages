@@ -42,7 +42,7 @@
   ];
 
   var FIRST_STEP = {
-    not_yet: 'Day 1: their first three notes, C, D and E, then a Jam Along with the band.',
+    not_yet: 'Their first three notes, C, D and E, then a Jam Along with the band.',
     a_little: 'They start at Lesson 1 and move at their own pace.',
     lessons_now: 'A fun way to practice between lessons: they play along with the band and earn Rock Stars.'
   };
