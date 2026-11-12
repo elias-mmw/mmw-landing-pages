@@ -166,10 +166,10 @@
 
     var trust = el('div', 'mmw-quiz__trust');
     var photo = el('img');
-    photo.src = 'assets/quiz-elias.webp';
+    photo.src = 'assets/quiz-elias.webp?v=2';
     photo.alt = 'Mr. Elias';
-    photo.width = 48;
-    photo.height = 48;
+    photo.width = 56;
+    photo.height = 56;
     trust.appendChild(photo);
     trust.appendChild(el('p', '', 'Video lessons by Mr. Elias, who has been teaching kids music since 2009.'));
 
