@@ -2,6 +2,7 @@
  * Shows a small invitation after 30 seconds, or after 40% scroll once 20 seconds have passed,
  * unless the visitor already opened signup or saw it in the last 7 days.
  * Three questions lead to a short plan whose buttons use the page's own price card and signup window.
+ * Opening the quiz starts loading the signup windows in the background, so a plan opens without waiting.
  * Add ?quiz=now to the address to see it after 2 seconds (for checking only).
  */
 (function () {
@@ -75,6 +76,13 @@
     try { window.localStorage.setItem(SEEN_KEY, String(Date.now())); } catch (err) {}
   }
 
+  // Loads a plan's signup window in the background (the page's own loader), so it opens without waiting.
+  function warmSignup(plan) {
+    try {
+      if (typeof loadCheckoutPlan === 'function') loadCheckoutPlan(plan);
+    } catch (err) {}
+  }
+
   function el(tag, className, text) {
     var node = document.createElement(tag);
     if (className) node.className = className;
@@ -103,6 +111,7 @@
     start.type = 'button';
     start.addEventListener('click', function () {
       track('quiz_opened');
+      warmSignup('yearly');
       showQuestion(0);
     });
     render([
@@ -115,6 +124,7 @@
   function showQuestion(index) {
     var question = QUESTIONS[index];
     currentStep = 'question_' + (index + 1);
+    if (index === 1) warmSignup('monthly');
     var bar = el('div', 'mmw-quiz__bar');
     var fill = el('span');
     fill.style.width = Math.round(((index + 1) / QUESTIONS.length) * 100) + '%';
