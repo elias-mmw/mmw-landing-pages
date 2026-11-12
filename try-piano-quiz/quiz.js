@@ -168,15 +168,24 @@
       checks.appendChild(el('li', '', text));
     });
 
-    var start = el('button', 'mmw-quiz__primary', 'Start their free week');
-    start.type = 'button';
-    start.addEventListener('click', function () { startSignup('yearly'); });
-
-    var fine = el('p', 'mmw-quiz__fine', 'Yearly, $10/month after the free week. ');
-    var monthly = el('button', '', 'Prefer monthly? $16/month');
-    monthly.type = 'button';
-    monthly.addEventListener('click', function () { startSignup('monthly'); });
-    fine.appendChild(monthly);
+    var plans = el('div', 'mmw-quiz__plans');
+    [
+      { plan: 'yearly', name: 'Yearly', badge: 'Best value', price: '$10', note: 'Billed $120/year. Save $72 a year.' },
+      { plan: 'monthly', name: 'Monthly', price: '$16', note: 'Month to month.' }
+    ].forEach(function (option) {
+      var card = el('div', 'mmw-quiz__card' + (option.badge ? ' mmw-quiz__card--best' : ''));
+      if (option.badge) card.appendChild(el('span', 'mmw-quiz__badge', option.badge));
+      card.appendChild(el('p', 'mmw-quiz__card-name', option.name));
+      var price = el('p', 'mmw-quiz__card-price', option.price);
+      price.appendChild(el('span', '', '/month'));
+      card.appendChild(price);
+      card.appendChild(el('p', 'mmw-quiz__card-note', option.note));
+      var button = el('button', 'mmw-quiz__primary', 'Start my free week');
+      button.type = 'button';
+      button.addEventListener('click', function () { startSignup(option.plan); });
+      card.appendChild(button);
+      plans.appendChild(card);
+    });
 
     var retake = el('button', 'mmw-quiz__link mmw-quiz__retake', 'Retake the quiz');
     retake.type = 'button';
@@ -191,9 +200,8 @@
       plan,
       trust,
       checks,
-      el('p', 'mmw-quiz__invite', 'See how they like it. Their first week is free.'),
-      start,
-      fine,
+      el('p', 'mmw-quiz__invite', 'See how they like it. Their first week is free. Pick a plan for after the free week:'),
+      plans,
       retake
     ]);
     panel.scrollTop = 0;
