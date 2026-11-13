@@ -55,7 +55,7 @@
 
   var CLIP = {
     not_yet: { label: 'Peek at Lesson 1', src: 'assets/lesson-1-cde-clip.mp4', poster: 'assets/lesson-1-cde-poster.webp', name: 'Lesson 1' },
-    a_little: { label: 'Peek at a Jam Along', src: 'assets/quiz-jam-along-clip.mp4', poster: 'assets/quiz-jam-along-poster.webp', name: 'a Jam Along' },
+    a_little: { label: 'Peek at the Lesson 1 Jam Along', src: 'assets/lesson-1-jam-along-clip.mp4', poster: 'assets/lesson-1-jam-along-poster.webp', name: 'the Lesson 1 Jam Along' },
     lessons_now: { label: 'Peek at what’s ahead: chords', src: 'assets/quiz-chords-clip.mp4', poster: 'assets/quiz-chords-poster.webp', name: 'a later chord lesson' }
   };
 
